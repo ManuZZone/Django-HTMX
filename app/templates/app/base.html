@@ -1,0 +1,30 @@
+{% load static %}
+{% load django_htmx %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  <link href="{% static 'css/daisyui.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
+  <script src="{% static 'js/tailwind.js' %}"></script>
+  <script defer src="{% static 'js/alpine.min.js' %}"></script>
+  <script src="{% static 'js/htmx.min.js' %}" defer></script>
+  <script src="{% static 'js/htmx.remove.me.min.js' %}" defer></script>
+  {% django_htmx_script %}
+  <script src="{% static 'js/sweet.min.js' %}"></script>
+</head>
+
+<body class="h-screen relative" hx-ext="remove-me" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  {% block content %}
+  {% endblock %}
+</body>
+
+</html>

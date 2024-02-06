@@ -1,0 +1,11 @@
+{% extends template %}
+{% block content %}
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content ">
+    {% include 'app/components/navbar.html' %}
+    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+  </div>
+  {% include 'app/components/drawer.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends template %}
+{% block content %}
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    {% include 'app/components/navbar.html' %}
+    <div class="p-5">
+        <form hx-post="{% url 'chat' %}" hx-on::after-request="this.reset()" class="pt-5">
+            <input type="text" class="input input-bordered w-full" name="message" placeholder="Type a message..."/>
+        </form>
+    </div>
+    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+  </div>
+  {% include 'app/components/drawer.html' %}
+</div>
+{% endblock %}

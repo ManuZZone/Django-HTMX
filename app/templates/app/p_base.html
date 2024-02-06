@@ -1,0 +1,10 @@
+{% block content %}
+{% endblock %}
+<script>
+    var csrfToken = '{{ csrf_token }}';
+    var headers = {
+        "X-CSRFToken": csrfToken
+    };
+    var headersJson = JSON.stringify(headers);
+    document.body.setAttribute("hx-headers", headersJson);
+</script>
